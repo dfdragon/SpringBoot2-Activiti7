@@ -37,7 +37,7 @@ public class ModelSaveRestResource implements ModelDataJsonConstants {
 
     @RequestMapping(value = {"/service/model/{modelId}/save"}, method = {org.springframework.web.bind.annotation.RequestMethod.PUT})
     @ResponseStatus(HttpStatus.OK)
-    public void saveModel(@PathVariable String modelId, @RequestBody MultiValueMap<String, String> values) {
+    public void saveModel(@RequestParam MultiValueMap<String, String> values, @PathVariable String modelId) {
         try {
             Model model = this.repositoryService.getModel(modelId);
             System.out.println("ModelSaveRestResource.saveModel----------");
